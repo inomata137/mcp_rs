@@ -1,0 +1,9 @@
+[package]
+name = "controller"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+jsonrpc = { path = "../jsonrpc" }
+protocol = { path = "../protocol" }
+serde_json.workspace = true
