@@ -1,6 +1,6 @@
 ## mcp_rs
 ### article
-[Rustで自作MCPサーバー](https://zenn.dev/articles/0b21b2b6757951)
+[Rustで自作MCPサーバー](https://zenn.dev/taro137/articles/0b21b2b6757951)
 
 ### usage
 ```sh
