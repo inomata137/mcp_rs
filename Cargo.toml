@@ -5,14 +5,10 @@ edition = "2024"
 
 [dependencies]
 controller = { path = "./controller" }
-jsonrpc = { path = "./jsonrpc" }
 protocol = { path = "./protocol" }
 resources = { path = "./resources" }
 tools = { path = "./tools" }
 transport = { path = "./transport" }
-async-trait.workspace = true
-serde.workspace = true
-serde_json.workspace = true
 tokio.workspace = true
 tracing-subscriber.workspace = true
 

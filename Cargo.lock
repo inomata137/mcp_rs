@@ -141,13 +141,9 @@ dependencies = [
 name = "mcp_rs"
 version = "0.1.0"
 dependencies = [
- "async-trait",
  "controller",
- "jsonrpc",
  "protocol",
  "resources",
- "serde",
- "serde_json",
  "tokio",
  "tools",
  "tracing-subscriber",
@@ -285,7 +281,6 @@ version = "0.1.0"
 dependencies = [
  "async-trait",
  "domain",
- "jsonrpc",
 ]
 
 [[package]]
@@ -443,7 +438,6 @@ version = "0.1.0"
 dependencies = [
  "async-trait",
  "domain",
- "jsonrpc",
  "schemars",
  "serde",
  "serde_json",

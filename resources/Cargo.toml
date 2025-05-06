@@ -5,5 +5,4 @@ edition = "2024"
 
 [dependencies]
 domain = { path = "../domain" }
-jsonrpc = { path = "../jsonrpc" }
 async-trait.workspace = true
