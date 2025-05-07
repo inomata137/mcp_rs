@@ -1,20 +1,20 @@
-pub struct ServerImpl {
+pub struct ServerImpl<TR, RR>
+where
+    TR: domain::repository::tool::ToolsRepository + Sync + Send,
+    RR: domain::repository::resource::ResourcesRepository + Sync + Send,
+{
     pub info: domain::entity::server::ServerInfo,
     pub capabilities: domain::entity::server::ServerCapabilities,
-    pub tools_repository:
-        std::sync::Arc<dyn domain::repository::tool::ToolsRepository + Sync + Send>,
-    pub resources_repository:
-        std::sync::Arc<dyn domain::repository::resource::ResourcesRepository + Sync + Send>,
+    pub tools_repository: std::sync::Arc<TR>,
+    pub resources_repository: std::sync::Arc<RR>,
 }
 
-impl ServerImpl {
-    pub fn new(
-        tools_repository: impl domain::repository::tool::ToolsRepository + Sync + Send + 'static,
-        resources_repository: impl domain::repository::resource::ResourcesRepository
-        + Sync
-        + Send
-        + 'static,
-    ) -> Self {
+impl<TR, RR> ServerImpl<TR, RR>
+where
+    TR: domain::repository::tool::ToolsRepository + Sync + Send,
+    RR: domain::repository::resource::ResourcesRepository + Sync + Send,
+{
+    pub fn new(tools_repository: TR, resources_repository: RR) -> Self {
         Self {
             info: domain::entity::server::ServerInfo {
                 name: "MCP-RS".to_string(),
@@ -36,7 +36,11 @@ impl ServerImpl {
     }
 }
 
-impl crate::server::Server for ServerImpl {
+impl<TR, RR> crate::server::Server for ServerImpl<TR, RR>
+where
+    TR: domain::repository::tool::ToolsRepository + Sync + Send + 'static,
+    RR: domain::repository::resource::ResourcesRepository + Sync + Send + 'static,
+{
     fn before_init(
         &self,
         _params: &crate::usecase::lifecycle::InitializeParams,

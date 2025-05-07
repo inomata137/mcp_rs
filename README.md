@@ -8,7 +8,8 @@ bunx @modelcontextprotocol/inspector cargo run -qr
 ```
 
 ### architecture
-| workspace member | description |
+#### workspace members
+| name | description |
 | - | - |
 | controller | method-handler mapping |
 | domain | core entities and repository traits |
@@ -17,3 +18,15 @@ bunx @modelcontextprotocol/inspector cargo run -qr
 | resources | resources implementation |
 | tools | tools implementation |
 | transport | stdio implementation |
+
+#### dependency graph
+```mermaid
+graph TB
+    transport --> jsonrpc
+    controller --> jsonrpc
+    controller --> protocol
+    protocol --> jsonrpc
+    protocol --> domain
+    resources --> domain
+    tools --> domain
+```
